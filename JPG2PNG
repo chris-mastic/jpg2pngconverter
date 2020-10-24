@@ -1,0 +1,48 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Oct 23 14:53:35 2020
+
+@author: tech
+"""
+
+import sys
+import os
+from PIL import Image
+
+
+def getFileNames(path):
+    pokedex = sys.argv[1]
+    new = sys.argv[2]
+    #print()
+    # for i in os.listdir('/home/tech/image_playground/pokedex/'):
+    #     print(i)
+    checkIfFileExists(path,new)
+    jpg2png(path,pokedex,new)
+
+def jpg2png(path,pokedex,new):
+    print("aaaaaa")
+    try:
+        for pic in os.listdir('/home/tech/image_playground/pokedex'):
+            img = Image.open(path+pokedex+"/"+pic)
+            #print(f'pic {path+pokedex+"/"+pic}')
+            img.save(path+new+"/"+pic+".png",'png')
+    except :
+        print("error occurred trying to save file")
+
+def checkIfFileExists(path,file):
+    print("checkIfFileExists...")
+    try:
+        if os.path.exists(path+file):
+            pass
+        else:
+            print("path: " ,path+file)
+            os.mkdir(path+file)
+    except:
+        print("unable to create file")
+
+
+if __name__ == '__main__':
+    path = "/home/tech/image_playground/"
+    getFileNames(path)
+    
