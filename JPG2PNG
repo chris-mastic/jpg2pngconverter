@@ -21,7 +21,7 @@ def getFileNames(path):
     jpg2png(path,pokedex,new)
 
 def jpg2png(path,pokedex,new):
-    print("aaaaaa")
+    
     try:
         for pic in os.listdir('/home/tech/image_playground/pokedex'):
             img = Image.open(path+pokedex+"/"+pic)
